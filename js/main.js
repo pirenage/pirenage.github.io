@@ -1150,85 +1150,85 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     let isInited = window.matchMedia("(max-width: 1000px)").matches;
-    // const sections = [...document.querySelectorAll('.js-section')]
+    const sections = [...document.querySelectorAll('.js-section')]
 
-    // function onScroll() {
-    //     const isPageEnd = window.scrollY + window.innerHeight >= document.scrollingElement.scrollHeight;
+    function onScroll() {
+        const isPageEnd = window.scrollY + window.innerHeight >= document.scrollingElement.scrollHeight;
 
-    //     sections.forEach((section) => {
-    //         const { top, bottom } = section.getBoundingClientRect()
-    //         const inViewport = top <= 0 && bottom >= 0
-    //         const id = section.getAttribute('id')
+        sections.forEach((section) => {
+            const { top, bottom } = section.getBoundingClientRect()
+            const inViewport = top <= 0 && bottom >= 0
+            const id = section.getAttribute('id')
 
-    //         if (inViewport && !isPageEnd) {
-    //             document.querySelector(`[data-menuanchor="${id}"]`).classList.add('active')
-    //         } else {
-    //             document.querySelector(`[data-menuanchor="${id}"]`).classList.remove('active')
-    //         }
-    //     })
+            if (inViewport && !isPageEnd) {
+                document.querySelector(`[data-menuanchor="${id}"]`).classList.add('active')
+            } else {
+                document.querySelector(`[data-menuanchor="${id}"]`).classList.remove('active')
+            }
+        })
 
-    //     if (isPageEnd) {
-    //         const id = sections[sections.length - 1].getAttribute('id')
-    //         document.querySelector(`[data-menuanchor="${id}"]`).classList.add('active')
-    //     }
-    // }
+        if (isPageEnd) {
+            const id = sections[sections.length - 1].getAttribute('id')
+            document.querySelector(`[data-menuanchor="${id}"]`).classList.add('active')
+        }
+    }
 
-    // function moveToContacts() {
-    //     const linkToContacts = document.getElementById('linkToContacts')
+    function moveToContacts() {
+        const linkToContacts = document.getElementById('linkToContacts')
 
-    //     linkToContacts.addEventListener('click', (event) => {
-    //         const searchSection = document.getElementById('contacts')
+        linkToContacts.addEventListener('click', (event) => {
+            const searchSection = document.getElementById('contacts')
 
-    //         event.preventDefault()
-    //         const { top, bottom } = searchSection.getBoundingClientRect()
+            event.preventDefault()
+            const { top, bottom } = searchSection.getBoundingClientRect()
 
-    //         window.scrollTo({
-    //             top: window.scrollY + top,
-    //             behavior: "smooth"
-    //         });
-    //     })
-    // }
+            window.scrollTo({
+                top: window.scrollY + top,
+                behavior: "smooth"
+            });
+        })
+    }
 
-    // function scrollToSection() {
-    //     const items = document.querySelectorAll('.header__menu-item');
+    function scrollToSection() {
+        const items = document.querySelectorAll('.header__menu-item');
 
-    //     [...items].forEach(item => {
-    //         const section = document.getElementById(item.dataset.menuanchor);
+        [...items].forEach(item => {
+            const section = document.getElementById(item.dataset.menuanchor);
 
-    //         item.addEventListener('click', function (event) {
-    //             event.preventDefault();
+            item.addEventListener('click', function (event) {
+                event.preventDefault();
 
-    //             const { top } = section.getBoundingClientRect()
+                const { top } = section.getBoundingClientRect()
 
-    //             window.scrollTo({
-    //                 top: window.scrollY + top,
-    //                 behavior: "smooth"
-    //             });
+                window.scrollTo({
+                    top: window.scrollY + top,
+                    behavior: "smooth"
+                });
 
-    //             if (isTablet()) {
-    //                 document.querySelector('.header__menu').classList.remove('active');
-    //             }
-    //         })
-    //     })
-    // }
+                if (isTablet()) {
+                    document.querySelector('.header__menu').classList.remove('active');
+                }
+            })
+        })
+    }
 
     function initPaging() {
-      // [...document.querySelectorAll('.header__menu-item')].forEach(element => {
-      //     if (element.classList.contains('active')) {
-      //         element.classList.remove('active')
-      //     }
-      //     if (document.getElementById('pagepiling')) {
-      //         scrollToSection();
-      //         moveToContacts()
-      //     }
-      // });
-      // if (document.getElementById('pagepiling')) {
-      //     window.addEventListener('scroll', onScroll)
+      [...document.querySelectorAll('.header__menu-item')].forEach(element => {
+          if (element.classList.contains('active')) {
+              element.classList.remove('active')
+          }
+          if (document.getElementById('pagepiling')) {
+              scrollToSection();
+              moveToContacts()
+          }
+      });
+      if (document.getElementById('pagepiling')) {
+          window.addEventListener('scroll', onScroll)
 
-      // }
-      // if (document.getElementById('pagepiling')) {
-      //     window.removeEventListener('scroll', onScroll)
-      // }
+      }
+      if (document.getElementById('pagepiling')) {
+          window.removeEventListener('scroll', onScroll)
+      }
 
       const anchors = [
         "home",
